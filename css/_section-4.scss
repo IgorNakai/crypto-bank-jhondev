@@ -1,0 +1,106 @@
+@import 'mixins';
+
+.section-4{
+    grid-area: section-4;
+    &__content{
+        padding: rem(5) rem(16);
+        &__tittle{
+            text-align: center;
+            padding: rem(60) rem(0);
+            h1{
+                position: relative;
+                display: inline;
+                padding-bottom: rem(2);
+                @include underLineText;
+            }
+        }
+        &__cards{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(rem(230), 1fr));
+            justify-content: center;
+            gap: rem(30);
+            &__card{
+                background-color: var(--fourth-color);
+                border-radius: rem(30);
+                padding: rem(20);
+                transition: 0.3s;
+                cursor: pointer;
+                &__tittle{
+                    padding: rem(10) rem(0);
+                    text-align: left;
+                    border-bottom: rem(1) solid var(--third-color);
+                    h2{
+                        display: flex;
+                        align-items: flex-start;
+                        flex-direction: column-reverse;
+                        justify-content: center;
+                        span{
+                            @include font-size(sizeOne);
+                            background-color: rgb(104, 170, 4);
+                            border-radius: rem(50);
+                            padding: rem(0) rem(16);
+                        }
+                    }
+                    span{
+                        font-size: rem(40);
+                        font-weight: 700;
+                        display: flex;
+                        align-items: center;
+                    }
+                    p{
+                        padding-top: rem(16);
+                        @include font-size(sizeOne);
+                    }
+                }
+                &__recursos{
+                    padding: rem(20) rem(0);
+                    ul{
+                        li{
+                            display: flex;
+                            align-items: center;
+                            gap: rem(20);
+                            padding-bottom: rem(20);
+                        }
+                    }
+                }
+                &__button{
+                    display: flex;
+                    justify-content: center;
+                    padding: rem(20) rem(0);
+                }
+                &:nth-child(2){
+                    background-color: var(--primary-color);
+                    color: var(--secundery-color);
+                        button{
+                            background-color: var(--fourth-color);
+                        }
+                }
+                &:hover{
+                    transform: scale(1.03);
+                    z-index: 2;
+                    box-shadow: 0px 5px 16px -2px #00000063;
+                }
+            }
+        }
+    }
+    @include break(laptop){
+        &__content{
+            &__cards{
+                &__card{
+                    &__tittle{
+                        h2{
+                            flex-direction: row;
+                            justify-content: space-between;
+                            align-items: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include break(desktop){
+        &__content{
+            @include max-conteiner;
+        }
+    }
+}

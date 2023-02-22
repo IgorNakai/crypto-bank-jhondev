@@ -1,0 +1,118 @@
+@import 'mixins';
+@import 'header';
+@import 'hero';
+@import 'section-1';
+@import 'section-2';
+@import 'section-3';
+@import 'section-4';
+@import 'section-5';
+@import 'footer';
+
+:root{
+    --primary-font-family: 'Montserrat', sans-serif;
+    --secundery-font-family: 'Koulen', cursive;
+
+    --text-color: rgb(219, 219, 219);
+
+
+    
+    --primary-color: rgb(255, 255, 255);
+    --primary-wopc-color: rgba(255, 255, 255, 0.74);
+    
+    --secundery-color: rgb(29, 29, 39);
+    
+    --third-color: rgb(66, 37, 242);
+    --third-wopc-color: rgba(64, 37, 242, 0.836);
+
+    --fourth-color: rgb(49, 47, 58);
+    --fifth-color: rgb(30, 28, 41);
+
+
+    --text-color-button: rgb(219, 219, 219);
+    --btn-color: rgb(66, 37, 242);
+    --btn-color-hover: rgba(64, 37, 242, 0.836);
+
+    transition: 0.2s;
+}
+.ligth-mode:root{
+    --primary-font-family: 'Montserrat', sans-serif;
+    --secundery-font-family: 'Koulen', cursive;
+
+    --text-color: rgb(29, 29, 39);
+
+
+
+    --primary-color: rgb(118, 150, 235);
+    --primary-wopc-color: rgb(118, 150, 235, 0.836);
+    /* -- */
+    --secundery-color: rgb(219, 219, 219);
+    /* -- */
+    --third-color: rgb(118, 150, 235);
+    --third-wopc-color: rgb(118, 150, 235, 0.836);
+
+    --fourth-color: rgb(252, 178, 242);
+
+    --fifth-color: rgb(115, 193, 212);
+
+    --text-color-button: rgb(219, 219, 219);
+    --btn-color: rgb(118, 150, 235);
+    --btn-color-hover: rgb(118, 150, 235, 0.836);
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: var(--primary-font-family);
+    @include font-size(sizeOne);
+    button{
+        @include btn;
+    }
+    h1{
+        @include font-size(H1)
+    }
+    h2{
+        @include font-size(H2)
+    }
+    h3{
+        @include font-size(H3)
+    }
+    h4{
+        @include font-size(H4)
+    }
+    h5{
+        @include font-size(H5)
+    }
+    h6{
+        @include font-size(H6)
+    }
+    li{
+        list-style: none;
+    }
+    a{
+        text-decoration: none;
+        @include font-size(sizeOne);
+        color: var(--text-color);
+    }
+}
+
+body{
+    height: 100vh;
+    background-color: var(--secundery-color);
+    color: var(--text-color);
+    text-decoration-color: var(--text-color);
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto auto auto auto auto;
+    grid-template-areas: 
+    "header"
+    "hero"
+    "section-1"
+    "section-2"
+    "section-3"
+    "section-4"
+    "section-5"
+    "footer";
+    gap: rem(30);
+    overflow-x: hidden;
+}

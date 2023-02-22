@@ -1,0 +1,56 @@
+@import 'mixins';
+
+.section-5{
+    grid-area: section-5;
+    &__content{
+        padding: rem(60) rem(16);
+        display: flex;
+        flex-direction: column;
+        gap: rem(16);
+        &__accordion{
+            overflow: hidden;
+            &__tittle{
+                display: flex;
+                justify-content: space-between;
+                span{
+                    i{
+                        transform: rotate(0deg);
+                        transition: 1s ease;
+                    }
+                }
+            }
+            &__text{
+                text-align: left;
+                text-transform: capitalize;
+                height: 0;
+                overflow: hidden;
+                transition: 0.3s linear;
+            }
+            &.active-accordion &__tittle span i{
+                transform: rotate(45deg);
+            }
+            &.active-accordion &__text{
+                padding: rem(20) rem(0);
+                height: auto;
+                animation: accordionEntrance 1s ease 0s 1 normal forwards;
+            }
+            
+            @keyframes accordionEntrance {
+                0% {
+                    opacity: 0;
+                    transform: translateY(-250px);
+                }
+            
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        }
+    }
+    @include break(desktop){
+        &__content{
+            @include max-conteiner;
+        }
+    }
+}

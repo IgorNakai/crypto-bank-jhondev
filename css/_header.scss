@@ -1,0 +1,58 @@
+@import 'mixins';
+
+.header{
+    grid-area: header;
+    &__content{
+        padding: rem(10) rem(16);
+        &__nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &__items{
+                display: flex;
+                align-items: center;
+                gap: rem(16);
+                overflow: hidden;
+                &__themesw{
+                    .toggle{
+                        position: relative;
+                        bottom: -1px;
+                        appearance: none;
+                        width: rem(70);
+                        height: rem(30);
+                        background-color: var(--primary-color);
+                        border-radius: rem(50);
+                        transition: 0.1s linear;
+                        cursor: pointer;
+                        &::after{
+                            content: '';
+                            position: absolute;
+                            left: rem(5);
+                            top: rem(5);
+                            width: rem(20);
+                            height: rem(20);
+                            background-color: var(--secundery-color);
+                            border-radius: rem(50);
+                            transition: 0.1s linear;
+                        }
+                        &:checked[type="checkbox"]{
+                            background-color: var(--third-color);
+                        }
+                        &:checked[type="checkbox"]::after{
+                            left: calc(100% - 5px);
+                            transform:  translateX(-100%);
+                        }
+                        &:active::after{
+                            width: rem(30);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include break(desktop){
+        &__content{
+            @include max-conteiner;
+        }
+    }
+}

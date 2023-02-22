@@ -1,0 +1,70 @@
+@import 'mixins';
+
+.section-2{
+    grid-area: section-2;
+    &__content{
+        padding: rem(30) rem(16);
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        &__aboutus{
+            h2{
+                display: inline;
+                position: relative;
+                padding-bottom: rem(2);
+                @include underLineText;
+            }
+            h4{
+                line-height: rem(25);
+                padding-top: rem(16);
+                padding-bottom: rem(2);
+            }
+            p{
+                text-overflow: ellipsis;
+            }
+        }
+        &__imagem{
+            
+            img{
+                max-width: rem(300);
+                object-fit: cover;
+                animation: etherium 10s ease 0s infinite normal forwards;
+            }
+            @keyframes etherium {
+                0% {
+                    transform: scale(1);
+                }
+            
+                50% {
+                    transform: scale(1.1);
+                }
+            
+                100% {
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+    @include break(desktop){
+        &__content{
+            @include max-conteiner;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: space-between;
+            &__aboutus{
+                p{
+                    max-width: 500px;
+                }
+            }
+        }
+    }
+    @include break(tablet){
+        &__content{
+            &__imagem{
+                img{
+                    max-width: rem(450);
+                }
+            }
+        }
+    }
+}
